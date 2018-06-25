@@ -29,5 +29,17 @@ public final class ConnectionToPostgres {
         System.out.println("PostgreSQL JDBC Driver Registered!");
         return connection;
     }
+
+    public static Connection checkCreateConnectionToDB() {
+        try {
+            if(connection.isClosed() || connection==null){
+                ConnectionToPostgres.createConnection();
+            }
+        }
+        catch (SQLException e) {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+        return connection;
+    }
 }
 
